@@ -1,0 +1,9 @@
+body {
+  font-family: sans-serif;
+  background: #f4f4f4;
+  min-height: 100vh;          /* ekran boyu kadar yükseklik */
+  display: flex;              /* içeriği flex ile yönet */
+  justify-content: center;    /* yatayda ortala */
+  align-items: center;        /* dikeyde ortala */
+  margin: 0;                  /* tarayıcının varsayılan boşluğunu sıfırla */
+}

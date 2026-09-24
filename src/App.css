@@ -1,0 +1,45 @@
+.login-box {
+  background: white;
+  padding: 32px;
+  /* iç boşluk */
+  border-radius: 12px;
+  /* köşeleri yuvarla */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  /* hafif gölge */
+  width: 320px;
+}
+
+.login-box input {
+  display: block;        /* her input alt alta gelsin */
+  width: 100%;           /* kutunun tam genişliği */
+  padding: 10px;
+  margin-top: 6px;       /* üstündeki başlıkla arası */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;  /* padding'i genişliğe DAHİL et */
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 16px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  /* üstüne gelince el imleci */
+  font-size: 15px;
+}
+
+.login-box button:hover {
+  background: #1d4ed8;
+  /* üstüne gelince biraz koyulaşsın */
+}
+
+.basarili{
+  color: green;
+}
+.hata {
+  color: red;
+}
