@@ -1,0 +1,55 @@
+.not-sayfasi {
+  width: 100%;
+  max-width: 600px;
+  min-height: 100vh;      /* sayfayı doldur → ortalama itemez */
+  margin: 0 auto;         /* yatayda ortala */
+  padding-top: 40px;      /* üstten boşluk */
+  box-sizing: border-box;
+}
+.not-sayfasi button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;   /* mavi */
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+.not-sayfasi button:hover {
+  background: #1d4ed8;   /* üstüne gelince koyulaşsın */
+}
+.ekle-satiri {
+  display: flex;
+  gap: 8px;              /* aralarında boşluk */
+  margin-bottom: 20px;
+}
+.ekle-satiri input {
+  flex: 1;              /* input kalan tüm genişliği kaplasın */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.not-listesi {
+  list-style: none;     /* madde imlerini kaldır */
+  padding: 0;
+}
+.not-karti {
+  display: flex;
+  justify-content: space-between;  /* metin solda, butonlar sağda */
+  align-items: center;
+  background: white;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.buton-grubu {
+  display: flex;
+  gap: 6px;
+}
+.not-sayfasi .sil-btn {
+  background: #dc2626;   /* kırmızı */
+}
+.not-sayfasi .sil-btn:hover {
+  background: #b91c1c;
+}
