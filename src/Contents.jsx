@@ -1,24 +1,26 @@
 import './Contents.css'
 import { useState } from "react"
+import NotKart from './NotKart'
 
 function Content() {
 
-    const [notlar, setNotlar] = useState(["İlk notum", "React Öğreniyorum","map() deneme"])
+    const [notlar, setNotlar] = useState([
+        { metin: "İlk notum", tarih: "24.09.2026" },
+        { metin: "React Öğreniyorum", tarih: "22.09.2026" },
+        { metin: "map() deneme", tarih: "27.09.2026" },
+    ])
     const [yeniNot, setYeniNot]= useState("")
-    const [duzenlenenIndex, setDuzenenlenenIndex] = useState(null)
-    const [duzenlenenMetin, setDuzenlenenMetin] = useState("")
     const notEkle = () => {
-        setNotlar([...notlar, yeniNot])
+        setNotlar([...notlar,{metin: yeniNot, tarih: new Date().toLocaleDateString()}])
         setYeniNot("")
     }
     const notSil=(silinecekIndex)=>{
-        setNotlar(notlar.filter((not, index) => index !== silinecekIndex))
+        setNotlar(notlar.filter((n, index) => index !== silinecekIndex))
     }
-    const notGuncelle=(guncellenecekIndex)=>{
-        setNotlar(notlar.map((not, index)=>
-            index === guncellenecekIndex ? duzenlenenMetin : not
+    const notGuncelle=(index, yeniMetin)=>{
+        setNotlar(notlar.map((n, i)=>
+            i === index ? {...n, metin: yeniMetin} : n
         ))
-        setDuzenenlenenIndex(null)
     }
 
     return(
@@ -34,22 +36,12 @@ function Content() {
         </div>
             <ul className='not-listesi'>
             {notlar.map((not, index)=> (
-                <li key={index} className='not-karti'>
-                    {index === duzenlenenIndex ? (
-                     <>
-                     <input value={duzenlenenMetin} onChange={(e)=> setDuzenlenenMetin(e.target.value)}/>
-                     <button onClick={() => notGuncelle(index)}>Kaydet</button>
-                     </>) : (
-                     <>
-                     {not}
-                     <div className='buton-grubu'>
-                        <button onClick={()=> {setDuzenenlenenIndex(index); setDuzenlenenMetin(not)}}>Düzenle</button>
-                        <button className="sil-btn" onClick={() => notSil(index)}>Sil</button>
-                     </div>
-
-                    </>
-              )}
-              </li>
+               <NotKart 
+                key={index}
+                metin={not.metin}
+                tarih={not.tarih}
+                onSil={()=> notSil(index) }
+                onGuncelle={(yeniMetin)=>notGuncelle(index, yeniMetin)} />
             ))}
         </ul>
     </div> 
